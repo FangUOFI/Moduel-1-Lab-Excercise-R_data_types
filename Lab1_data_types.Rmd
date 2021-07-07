@@ -10,9 +10,10 @@ knit: (function(input_file, encoding) {
 output: 
   html_document: 
     keep_md: yes
+    toc: true
 ---
 
-Objectives
+# Objectives
 
 - Assign values to objects in R.
 
@@ -23,7 +24,7 @@ Objectives
 
 In this session, we will have a brief overview of the R especially for those who are not very familiar with this language. I would recommend you to create a new script called lecture.r under a specific folder (e.g. exercise_1)  to try out the commands we introduced below.   
 
-# 1. Basic operators
+## 1. Basic operators
 
 First, we start with some basic operators in R e.g. `+ - * /`. Try to type these commands below in your console window to get the results.
 
@@ -71,7 +72,7 @@ How we usually name a variable in R? Please note
 - Name cannot start with a number e.g. 4_income is not valid. 
 
 
-# 2. Basic Data Types in R
+## 2. Basic Data Types in R
 
 The commonly used data types in R are:
 
@@ -89,7 +90,7 @@ The commonly used data types in R are:
 To check out the data type for a certain variable, you can use `typeof()`, or `class()`
 
 
-## Question 1: 
+### Question 1: 
 Execute the commends below. What is the data type for x?
 ```{r eval=F}
 x  <- 5
@@ -108,7 +109,7 @@ class(x)
 ```
 
 
-## Question 2: 
+### Question 2: 
 Execute the commands below. Is `y` an integer, logical or numeric data? 
 ```{r eval=F}
 y <-5.0
@@ -141,7 +142,7 @@ class(test)
 
 ```
 
-## Question 3: 
+### Question 3: 
 Try out the commends below. What is the data type for `test2`? Numeric or character? 
 
 ```{r eval=F}
@@ -152,7 +153,7 @@ class(test2)
 
 
 
-# 3. Vectors
+## 3. Vectors
 
 Vectors is the most common and basic data model in R.
 
@@ -201,7 +202,7 @@ eva_scores
 class(eva_scores)
 ```
 
-## Question 4:
+### Question 4:
 
 What is the data type for `eva_scores` ? 
 
@@ -267,8 +268,7 @@ print (convertafter)
 ```
 
 
-
-# 4. Matrices
+## 4. Matrices
 
 Vectors are 1-dimension array, matrices are 2-dimensional array. In other words, matrices have rows and columns. We can create a new matrix via `matrix()`. To check dimensions, please use the function: `dim()`. Please also note that matrices are structured column-wise. That means values are assigned by column first then rows. 
 
@@ -291,7 +291,7 @@ m
 
 Within the matrix function,you can set `byrow=TRUE`, and the matrix is filled by rows. 
 
-## Question 5:
+### Question 5:
 
 Use the `matrix` function to generate the matrix below:
 
@@ -305,7 +305,7 @@ m <- matrix(10:21, nrow=3, ncol=4, byrow=T)
 ```
 
 
-# 5. Data frame
+## 5. Data frame
 
 A data frame is also a two-dimensional array structure, where each column contains values of one variable and each row contains one set of values. For a data frame, the column names cannot be empty, and each column should have same amount of items. Each column can store different types of data. A data frame is very similar to a tabular data in excel sheet. Usually when we read in any tables into R, we usually store them as a data frame. For this course, we will primarily work with vectors and data frames. 
 
@@ -348,7 +348,7 @@ Sometimes we need subset some certain rows. Please note columns usually include 
 iris[3,]
 ```
 
-## Question 6:
+### Question 6:
 
 Try to use index numbers to extract the 3rd column from iris data instead of using `iris$Petal.Length`
 ```{r eval=F, include=F}
@@ -356,7 +356,7 @@ iris[,3]
 ```
 
 
-# 6. Date and times in R
+## 6. Date and times
 
 In social science field, there are lots of scenarios we have to analysis a certain pattern overtime. E.g is the mean household income declines each year from 1990-2020? Let's explore more about date and time in R. In fact date and time are different concepts. First let's install the `lubridata` package. 
 
@@ -397,7 +397,7 @@ year_example <- year(date_POSIXct)
 ```
 
 
-## Question 7: 
+### Question 7: 
 
 Try the command below to extract hour (it should be `8`) from `time_chr`. Does it work or not? Why?
 
@@ -445,7 +445,7 @@ subset_water <- subset(water, date_component=='2015-08-12')
 
 To learn more about date/time in R, click [here](https://r4ds.had.co.nz/dates-and-times.html#prerequisites-10). 
 
-# 7. List
+## 7. List
 
 List is an R object which can mix different types of data e.g. numbers, letters, vectors matrix. For example, we can create a list below. Note the size for each vector are also different. 
 
@@ -478,7 +478,7 @@ class(first_item)
 A_list[[1]][1]
 ```
 
-# 8. Factor
+## 8. Factor
 
 Another typically used data type in R is factor. Factors categorize the data value and store it as unique levels. The values can be both strings or integers. Usually we use factor to store variables with limited number of unique values. For example, especially working with data in the planing field, columns like gender or month are usually factors in R. Since in gender we usually have "Male" or "Female" as the unique values. For variable month, we have 12 unique values.  Factors can only contain a pre-defined set values, known as levels.  Levels are automatically sorted in alphabetical order.But you can modify an existing factor based on your need. 
 To create or edit a factor,we can use `factor` function. Assume we need a new variable to store students gender. We simply create a vector called `sex`, but it is currently under character category. We can then convert this variable as a factor. Then we use `levels` to check out the unique values in alphabetical order.  
@@ -519,7 +519,7 @@ levels(new_order_data)
 
 
 
-## Question 8
+### Question 8
 
 Examine the data type of the first column in the `Beach_Water_Quality` data set. Convert it into a factor data type. What are the unique values for this column? 
 
@@ -528,6 +528,7 @@ water$`Beach Name` <-  factor(water$`Beach Name`)
 levels(water$`Beach Name`)
 ```
 
+# Summary
 
 The figure below gives you a better visualization of all the data types we mentioned above. 
 
