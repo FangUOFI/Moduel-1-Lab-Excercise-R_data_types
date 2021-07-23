@@ -468,6 +468,28 @@ class(iris)</code></pre>
 </ol>
 <p>Sometimes we need subset some certain rows. Please note columns usually include column name, but no names are given for each row since rows are individual records (not variables). We can still use row index to call a specific row, just leave the column number blank and it will return us all the column values. For example, the command below returns us all the values on the 3rd row:</p>
 <pre class="r"><code>iris[3,]</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>To subset rows using logical variable</li>
+</ol>
+<p>Remember we can always use logical variable to subset certain rows. For example, how to extract records for setosa only? You want to set up a filter to see any record follows <code>iris$Species==&quot;setosa&quot;</code>. Note you need to use the equality operator which means always equal to, to identify whether this record is setosa. Try to execute the command below in your console window:</p>
+<pre class="r"><code>iris$Species==&quot;setosa&quot;</code></pre>
+<p>What you get here? <code>iris$Species==&quot;setosa&quot;</code> will only return you a logical variable (T/F)! It will NOT tell you the original setosa data. But we can use this logical variables as <code>row numbers</code> for subsetting. Leave the column number blank so all the columns will be returned. Please try the commands below. You can always save the output as a new variable: for example, the subset will be saved as a new object called <code>subset_setosa</code> below.</p>
+<pre class="r"><code>subset_setosa &lt;- iris[iris$Species==&quot;setosa&quot;,]
+# Or your can try the `subset` function
+subset_setosa &lt;- subset(iris, iris$Species==&quot;setosa&quot;)</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>To subset rows based on multiple values</li>
+</ol>
+<p>For example, how to extract records for both setosa and versicolor? Try the <code>%in%</code> operator to get the logical variable for multiple values. The <code>c()</code> will combine multiple values together. <code>%in%</code> operator in R will identify if an element belongs to this vector created by <code>c()</code>.</p>
+<pre class="r"><code>subset_setosa_versicolor &lt;- iris[iris$Species%in%c(&quot;setosa&quot;,&quot;versicolor&quot;),]</code></pre>
+<ol start="6" style="list-style-type: decimal">
+<li>To Subset rows based on a numeric column</li>
+</ol>
+<p>Sometimes you need to subset your data based on some values of a numeric column. How about subset iris where Sepal.length is greater than 6?</p>
+<p>We can still use the logical variable to subset the dataset. The <code>iris$Sepal.Length&gt;6</code> will return a true or false variable. Leave the column number blank within the <code>[]</code> to subset the data.</p>
+<pre class="r"><code>subset_sepal &lt;- iris[iris$Sepal.Length&gt;6,]
+# or try the subset function instead
+subset_sepal &lt;-subset(iris, iris$Sepal.Length&gt;6)</code></pre>
 <div id="question-6" class="section level3">
 <h3>Question 6:</h3>
 <p>Try to use index numbers to extract the 3rd column from iris data instead of using <code>iris$Petal.Length</code></p>

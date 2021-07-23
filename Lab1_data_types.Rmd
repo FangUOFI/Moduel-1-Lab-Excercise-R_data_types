@@ -348,6 +348,45 @@ Sometimes we need subset some certain rows. Please note columns usually include 
 iris[3,]
 ```
 
+
+4) To subset rows using logical variable
+
+
+Remember we can always use logical variable to subset certain rows. For example, how to extract records for setosa only? You want to set up a filter to see any record follows `iris$Species=="setosa"`. Note you need to use the equality operator which means always equal to, to identify whether this record is setosa. Try to execute the command below in your console window:
+
+```{r eval=F}
+iris$Species=="setosa"
+```
+
+
+What you get here? `iris$Species=="setosa"` will only return you a logical variable (T/F)! It will NOT tell you the original setosa data. But we can use this logical variables as `row numbers` for subsetting. Leave the column number blank so all the columns will be returned. Please try the commands below. You can always save the output as a new variable: for example, the subset will be saved as a new object called `subset_setosa` below. 
+
+```{r eval=F}
+subset_setosa <- iris[iris$Species=="setosa",]
+# Or your can try the `subset` function
+subset_setosa <- subset(iris, iris$Species=="setosa")
+```
+
+5) To subset rows based on multiple values
+
+For example, how to extract records for both setosa and versicolor? Try the `%in%` operator to get the logical variable for multiple values. The `c()` will combine multiple values together. `%in%` operator in R will identify if an element belongs to this vector created by `c()`.
+ 
+```{r eval=F}
+subset_setosa_versicolor <- iris[iris$Species%in%c("setosa","versicolor"),]
+```
+
+6) To Subset rows based on a numeric column
+
+Sometimes you need to subset your data based on some values of a numeric column. How about subset iris where Sepal.length is greater than 6?
+
+We can still use the logical variable to subset the dataset. The `iris$Sepal.Length>6` will return a true or false variable. Leave the column number blank within the `[]` to subset the data. 
+
+```{r eval=F}
+subset_sepal <- iris[iris$Sepal.Length>6,]
+# or try the subset function instead
+subset_sepal <-subset(iris, iris$Sepal.Length>6)
+```
+
 ### Question 6:
 
 Try to use index numbers to extract the 3rd column from iris data instead of using `iris$Petal.Length`
