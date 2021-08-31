@@ -520,7 +520,7 @@ year_example &lt;- year(date_POSIXct)</code></pre>
 <h3>Question 7:</h3>
 <p>Try the command below to extract hour (it should be <code>8</code>) from <code>time_chr</code>. Does it work or not? Why?</p>
 <pre class="r"><code>hour_example &lt;- hour(time_chr)</code></pre>
-<p>Let’s go back to the detaset we mentioned in the video: ‘Beach_Water_Quality’. Load the dataset in R (Make sure you installed <code>tidyverse</code> package first):</p>
+<p>Let’s go back to the dataset called ‘Beach_Water_Quality’. Load this dataset in R (Make sure you installed <code>tidyverse</code> package first):</p>
 <pre class="r"><code>library(tidyverse)
 water &lt;- read_csv(&quot;data/Beach_Water_Quality.csv&quot;)</code></pre>
 <p>Examine all the columns in the dataset. According to the <code>measurement Timestamp</code> column these measures are posted since <code>10/01/2015 07:00:00 AM</code>. We are interested to get measurements from 2015-08-12 only. Currently the second column is a mix of data and time.We need to extract the date component from the column called <code>measurement Timestamp</code> in the dataset. Let’s first examine the data type for this column:</p>
