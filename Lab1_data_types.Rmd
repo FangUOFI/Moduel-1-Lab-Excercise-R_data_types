@@ -444,7 +444,7 @@ Try the command below to extract hour (it should be `8`) from `time_chr`. Does i
 hour_example <- hour(time_chr)
 ```
 
-Let's go back to the dataset called 'Beach_Water_Quality'. Load this dataset in R (Make sure you installed `tidyverse` package first):
+Let's go back to the dataset called 'Beach_Water_Quality'. Download the data as a csv from [here](https://data.cityofchicago.org/Parks-Recreation/Beach-Water-Quality-Automated-Sensors/qmqz-2xku/data) and load this dataset in R (Make sure you installed `tidyverse` package first):
 ```{r eval=F}
 library(tidyverse)
 water <- read_csv("data/Beach_Water_Quality.csv")
