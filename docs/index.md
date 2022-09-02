@@ -442,10 +442,10 @@ We can create a date/time variable from strings by specifying the format. For ex
 
 ```r
 date_chr <- c("2017-01-31")
-date_POSIXct <- ymd(date_example)  # y: year, m: month, d: date
+date_POSIXct <- ymd(date_chr)  # y: year, m: month, d: date
 
 time_chr <- c("02/12/2015 08:01")
-time_POSIXct <- mdy_hm(example2) # y: year, m: month, d: date , h: hour, m: minute
+time_POSIXct <- mdy_hm(time_chr) # y: year, m: month, d: date , h: hour, m: minute
 ```
 
 To extract a certain date/time component, you can use `month` or `year` to call this specific component. For example, let's extract month and year from `date_POSIXct`. 
